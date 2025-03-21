@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.venv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Python cache
+*.log
+*.sqlite3
+*.db
+
+# Ignore model files (optional, if you don't want to push trained models)
+model/model.pkl
+
+# Ignore environment variable files
+.env
+
+# macOS system files
+.DS_Store
+
+# Heroku files
+*.log

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+        }
+        h2 {
+            color: #333;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #4a54e1;
+        }
+        .prediction {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d2d2d;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form method="post">
+            <div class="form-group">
+                <label>Overall Quality (1-10)</label>
+                <input type="number" name="OverallQual" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label>GrLivArea (sq ft)</label>
+                <input type="number" name="GrLivArea" required>
+            </div>
+            <div class="form-group">
+                <label>Garage Cars</label>
+                <input type="number" name="GarageCars" required>
+            </div>
+            <div class="form-group">
+                <label>Total Basement SF</label>
+                <input type="number" name="TotalBsmtSF" required>
+            </div>
+            <div class="form-group">
+                <label>Full Bathrooms</label>
+                <input type="number" name="FullBath" required>
+            </div>
+            <div class="form-group">
+                <label>Year Built</label>
+                <input type="number" name="YearBuilt" required>
+            </div>
+            <button type="submit">Predict Price</button>
+        </form>
+        {% if prediction is not none %}
+            <p class="prediction">Predicted Price: ${{ prediction | round(2) }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
